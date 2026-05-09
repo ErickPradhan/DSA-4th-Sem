@@ -1,0 +1,833 @@
+/* auth.css - Vanilla CSS for Login & Register Pages */
+
+@import url('https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: #f5f5f5;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Header Styles */
+.header {
+    width: 100%;
+    height: 64px;
+    display: flex;
+    align-items: center;
+    padding: 0 32px;
+    border-bottom: 1px solid #e5e5e5;
+    background-color: #ffffff;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.header-title {
+    font-size: 24px;
+    font-weight: 700;
+    color: #1f2937;
+}
+
+/* Main Container */
+.main-container {
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+}
+
+/* Login Card */
+.login-card {
+    width: 100%;
+    max-width: 430px;
+    background-color: #ffffff;
+    padding: 40px 36px;
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    border-radius: 26px;
+    border: 1px solid #f3f4f6;
+}
+
+/* Title Section */
+.title-container {
+    text-align: center;
+    margin-bottom: 28px;
+}
+
+.main-title {
+    font-size: 34px;
+    font-weight: 800;
+    margin-bottom: 8px;
+    color: #111827;
+}
+
+.subtitle {
+    color: #6b7280;
+    font-size: 14px;
+}
+
+/* Error Message */
+.error-message {
+    margin-bottom: 24px;
+    padding: 16px;
+    border-radius: 12px;
+    background-color: #fef2f2;
+    border: 1px solid #fecaca;
+    color: #dc2626;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+/* Form Styles */
+.login-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.form-label {
+    font-size: 14px;
+    font-weight: 600;
+    color: #374151;
+}
+
+.form-input {
+    width: 100%;
+    border: 1px solid #d1d5db;
+    padding: 13px 16px;
+    border-radius: 12px;
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    transition: all 0.2s ease;
+}
+
+.form-input:focus {
+    outline: none;
+    ring: 2px solid #000000;
+    border-color: #000000;
+}
+
+/* Login Button */
+.login-button {
+    width: 100%;
+    background-color: #000000;
+    color: #ffffff;
+    padding: 13px 16px;
+    border-radius: 12px;
+    font-weight: 600;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+}
+
+.login-button:hover {
+    background-color: #1f2937;
+}
+
+/* Register Link */
+.register-container {
+    margin-top: 32px;
+    text-align: center;
+    font-size: 14px;
+    color: #4b5563;
+}
+
+.register-link {
+    font-weight: 700;
+    color: #000000;
+    text-decoration: none;
+}
+
+.register-link:hover {
+    text-decoration: underline;
+}
+
+/* Modal Overlay */
+.modal-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 50;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(4px);
+    padding: 24px;
+}
+
+/* Glass Panel */
+.glass-panel {
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    background: rgba(28, 28, 28, 0.82);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 28px;
+    padding: 36px 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Modal Content */
+.modal-logo {
+    margin-bottom: 28px;
+}
+
+.modal-logo-text {
+    font-size: 11px;
+    font-weight: 600;
+    color: #d7e8d6;
+    text-transform: uppercase;
+    letter-spacing: 0.35em;
+}
+
+/* Icon Circle */
+.icon-circle {
+    margin-bottom: 28px;
+    background-color: rgba(43, 58, 47, 0.8);
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    border: 1px solid #3f5645;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Text Content */
+.modal-text {
+    margin-bottom: 32px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.modal-title {
+    font-size: 34px;
+    line-height: 1.2;
+    font-weight: 800;
+    color: #ffffff;
+}
+
+.modal-message {
+    font-size: 15px;
+    color: #a3a3a3;
+}
+
+/* Progress Bar */
+.progress-container {
+    width: 100%;
+    max-width: 240px;
+    height: 4px;
+    background-color: #2d2d2d;
+    border-radius: 9999px;
+    overflow: hidden;
+}
+
+.progress-bar {
+    height: 100%;
+    border-radius: 9999px;
+    background: linear-gradient(90deg, #b6ccb8, #d8f3dc, #b6ccb8);
+    position: relative;
+    width: 100%;
+}
+
+/* Animations */
+@keyframes modalEntrance {
+    from {
+        opacity: 0;
+        transform: translateY(24px) scale(0.96);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+.animate-entrance {
+    animation: modalEntrance 0.55s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes successPop {
+    0% {
+        transform: scale(0.4);
+        opacity: 0;
+    }
+    60% {
+        transform: scale(1.12);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+.animate-success-icon {
+    animation: successPop 0.55s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+@keyframes glowPulse {
+    0%, 100% {
+        box-shadow: 0 0 12px rgba(194, 216, 196, 0.16), inset 0 0 14px rgba(194, 216, 196, 0.08);
+    }
+    50% {
+        box-shadow: 0 0 28px rgba(194, 216, 196, 0.32), inset 0 0 24px rgba(194, 216, 196, 0.14);
+    }
+}
+
+.glow-circle {
+    animation: glowPulse 2.8s ease-in-out infinite;
+}
+
+@keyframes progressFill {
+    from {
+        width: 0%;
+    }
+    to {
+        width: 100%;
+    }
+}
+
+.animate-progress {
+    width: 100%;
+    animation: progressFill 1.8s linear forwards;
+}
+
+@keyframes shimmer {
+    from {
+        background-position: 200% 0;
+    }
+    to {
+        background-position: -200% 0;
+    }
+}
+
+.progress-shimmer {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(90deg, 
+        rgba(255,255,255,0) 0%, 
+        rgba(255,255,255,0.18) 50%, 
+        rgba(255,255,255,0) 100%);
+    background-size: 200% 100%;
+    animation: shimmer 1.6s linear infinite;
+}
+
+/* Icon SVG styles */
+.icon-success, .icon-error {
+    width: 48px;
+    height: 48px;
+    color: #d8f3dc;
+}
+
+/* Modal Container */
+.modal-container {
+    width: 100%;
+    max-width: 384px;
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+    .login-card {
+        padding: 32px 20px;
+    }
+    
+    .main-title {
+        font-size: 28px;
+    }
+    
+    .glass-panel {
+        padding: 28px 24px;
+    }
+    
+    .modal-title {
+        font-size: 28px;
+    }
+}
+
+/* ============================================
+   REGISTER PAGE SPECIFIC STYLES
+   ============================================ */
+
+/* Password strength indicator */
+.password-strength {
+
+    width: 100%;
+
+    height: 6px;
+
+    background: #e5e7eb;
+
+    border-radius: 999px;
+
+    overflow: hidden;
+
+    margin-top: 12px;
+}
+
+.strength-bar {
+
+    height: 100%;
+
+    width: 0%;
+
+    border-radius: 999px;
+
+    transition:
+        width 0.3s ease,
+        background 0.3s ease;
+}
+
+.strength-weak {
+
+    width: 33%;
+
+    background: #ef4444;
+}
+
+.strength-medium {
+
+    width: 66%;
+
+    background: #f59e0b;
+}
+
+.strength-strong {
+
+    width: 100%;
+
+    background: #22c55e;
+}
+
+.strength-text {
+
+    margin-top: 8px;
+
+    font-size: 13px;
+
+    font-weight: 500;
+
+    color: #6b7280;
+}
+
+.strength-text {
+    font-size: 12px;
+    margin-top: 6px;
+    color: #6b7280;
+}
+
+/* Terms and conditions */
+.terms-container {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    margin-top: 8px;
+}
+
+.terms-checkbox {
+    width: 18px;
+    height: 18px;
+    margin-top: 2px;
+    cursor: pointer;
+    accent-color: #000000;
+}
+
+.terms-label {
+    font-size: 13px;
+    color: #4b5563;
+    line-height: 1.4;
+}
+
+.terms-link {
+    color: #000000;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.terms-link:hover {
+    text-decoration: underline;
+}
+
+/* Two-column layout for register form */
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+}
+
+/* Role selection */
+.role-group {
+    margin-bottom: 20px;
+}
+
+.role-label {
+    display: block;
+    margin-bottom: 10px;
+    font-size: 14px;
+    font-weight: 600;
+    color: #374151;
+}
+
+.role-options {
+    display: flex;
+    gap: 24px;
+}
+
+.role-option {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+}
+
+.role-radio {
+    width: 18px;
+    height: 18px;
+    cursor: pointer;
+    accent-color: #000000;
+}
+
+.role-text {
+    font-size: 14px;
+    color: #374151;
+    font-weight: 500;
+}
+
+/* Error summary */
+.error-summary {
+    margin-bottom: 24px;
+    padding: 14px;
+    border-radius: 12px;
+    background-color: #fef2f2;
+    border: 1px solid #fecaca;
+}
+
+.error-title {
+    font-size: 14px;
+    font-weight: 700;
+    color: #dc2626;
+    margin-bottom: 8px;
+}
+
+.error-list {
+    list-style: none;
+    padding-left: 0;
+    margin: 0;
+}
+
+.error-list li {
+    font-size: 13px;
+    color: #dc2626;
+    margin-bottom: 4px;
+    padding-left: 16px;
+    position: relative;
+}
+
+.error-list li::before {
+    content: "•";
+    position: absolute;
+    left: 0;
+    color: #dc2626;
+    font-weight: bold;
+}
+
+/* Success message (non-modal) */
+.success-message {
+    margin-bottom: 24px;
+    padding: 14px;
+    border-radius: 12px;
+    background-color: #f0fdf4;
+    border: 1px solid #bbf7d0;
+    color: #166534;
+    font-size: 14px;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* Admin Key Container */
+.admin-key-container {
+    width: 100%;
+    margin-top: -10px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    animation: fadeSlideDown 0.25s ease;
+}
+
+.admin-key-container .form-input {
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.admin-key-label {
+    margin-bottom: 8px;
+    display: block;
+}
+
+.role-group {
+    margin-bottom: 4px;
+}
+
+@keyframes fadeSlideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-6px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive adjustments */
+@media (max-width: 540px) {
+    .form-row {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    .role-options {
+        flex-direction: column;
+        gap: 12px;
+    }
+    
+    .login-card {
+        padding: 32px 24px;
+    }
+}
+
+/* ============================================
+   PASSWORD TOGGLE FIELD STYLES
+   ============================================ */
+
+.password-field-group {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.password-label {
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: #434843;
+    margin-bottom: 4px;
+}
+
+.password-input-wrapper {
+    position: relative;
+}
+
+.password-input {
+    width: 100%;
+    background-color: #ffffff;
+    border: 1px solid #c3c8c1;
+    border-radius: 12px;
+    padding: 12px 48px 12px 16px;
+    font-size: 16px;
+    font-family: 'Inter', sans-serif;
+    color: #1b1c1a;
+    transition: all 0.2s ease;
+}
+
+.password-input:focus {
+    outline: none;
+    ring: 2px solid #4f6353;
+    border-color: transparent;
+}
+
+.password-input::placeholder {
+    color: #5f5e5e;
+}
+
+.password-toggle-btn {
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    padding: 8px;
+    border-radius: 9999px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.2s ease;
+}
+
+.password-toggle-btn:hover {
+    background-color: #efeeeb;
+}
+
+.password-toggle-icon {
+    font-family: 'Material Symbols Outlined';
+    font-size: 24px;
+    color: #434843;
+    pointer-events: none;
+}
+
+.password-hint {
+    font-size: 10px;
+    font-weight: 600;
+    color: #9ca3af;
+    margin-top: 4px;
+    font-style: italic;
+}
+
+.password-match-error {
+    font-size: 12px;
+    color: #ef4444;
+    margin-top: 4px;
+    display: none;
+}
+
+.password-match-error.show {
+    display: block;
+}
+
+.material-symbols-outlined {
+    font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+    transition: all 0.2s ease-in-out;
+}
+
+/* ============================================
+   FIX: Hide duplicate browser password toggles
+   ============================================ */
+
+/* Hide browser's native password reveal button (Chrome, Edge, Safari) */
+input[type="password"]::-webkit-credentials-auto-fill-button,
+input[type="password"]::-webkit-textfield-decoration-container,
+input[type="password"]::-webkit-caps-lock-indicator,
+input[type="password"]::-webkit-clear-button,
+input[type="password"]::-webkit-inner-spin-button,
+input[type="password"]::-webkit-outer-spin-button,
+input[type="password"]::-webkit-eye-dropper-button,
+input[type="password"]::-webkit-search-cancel-button,
+input[type="password"]::-webkit-search-results-button,
+input[type="password"]::-webkit-search-results-decoration {
+    display: none !important;
+    opacity: 0 !important;
+    visibility: hidden !important;
+    pointer-events: none !important;
+}
+
+/* Hide for Firefox */
+input[type="password"]::-moz-reveal {
+    display: none !important;
+}
+
+/* Force custom toggle to be the only visible one */
+.password-input-wrapper {
+    position: relative;
+}
+
+.password-toggle-btn {
+    z-index: 10;
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+/* Completely hide browser's native password reveal button */
+input[type="password"]::-ms-reveal,
+input[type="password"]::-ms-clear,
+input[type="password"]::-webkit-contacts-auto-fill-button,
+input[type="password"]::-webkit-credentials-auto-fill-button {
+    display: none !important;
+    opacity: 0 !important;
+    visibility: hidden !important;
+    pointer-events: none !important;
+}
+
+/* For Chrome/Edge/Safari */
+input[type="password"]::-webkit-textfield-decoration-container {
+    display: none !important;
+}
+
+/* For Firefox */
+input[type="password"] {
+    -moz-appearance: textfield !important;
+}
+
+/* Ensure custom toggle is positioned correctly */
+.password-input-wrapper {
+    position: relative;
+    width: 100%;
+}
+
+.password-toggle-btn {
+    position: absolute;
+    right: 38px;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+    border-radius: 9999px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.password-toggle-btn:hover {
+    background-color: #f3f4f6;
+}
+
+.password-input {
+    padding-right: 48px !important;
+}
+
+/* Hide Microsoft Edge default password reveal icon */
+input::-ms-reveal,
+input::-ms-clear {
+    display: none;
+}
+
+/* Hide Chromium password icons */
+input[type="password"]::-webkit-credentials-auto-fill-button,
+input[type="password"]::-webkit-textfield-decoration-container {
+    display: none !important;
+    visibility: hidden;
+    pointer-events: none;
+}
+
+/* Hide Edge password reveal */
+::-ms-reveal {
+    display: none;
+}
+
+/* Hide Edge autofill icons */
+input::-webkit-contacts-auto-fill-button,
+input::-webkit-credentials-auto-fill-button {
+    visibility: hidden;
+    display: none !important;
+    pointer-events: none;
+    position: absolute;
+    right: 0;
+}
