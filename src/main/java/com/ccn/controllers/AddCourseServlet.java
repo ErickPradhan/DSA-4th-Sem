@@ -33,10 +33,22 @@ public class AddCourseServlet extends HttpServlet {
         String title = request.getParameter("title");
         String description = request.getParameter("description");
 
+        String category =
+        	    request.getParameter("category");
+
+        String instructor =
+        	    request.getParameter("instructor");
+
+        String status =
+        	    request.getParameter("status");
+        
         CourseModel course = new CourseModel();
 
         course.setTitle(title);
         course.setDescription(description);
+        course.setCategory(category);
+        course.setInstructor(instructor);
+        course.setStatus(status);
 
         boolean result =
         	    courseService.addCourse(course);

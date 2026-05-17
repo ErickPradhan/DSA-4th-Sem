@@ -38,6 +38,8 @@ public class AddAssignmentServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+    	
+    	System.out.println("ADD ASSIGNMENT SERVLET HIT");
 
         int courseId =
             Integer.parseInt(request.getParameter("course_id"));
@@ -45,6 +47,10 @@ public class AddAssignmentServlet extends HttpServlet {
         String title = request.getParameter("title");
         String description = request.getParameter("description");
         String deadline = request.getParameter("deadline");
+        String status = request.getParameter("status");
+        System.out.println("STATUS = " + status);
+        System.out.println("TITLE = " + title);
+        System.out.println("COURSE ID = " + courseId);
 
         AssignmentModel assignment = new AssignmentModel();
 
@@ -52,6 +58,7 @@ public class AddAssignmentServlet extends HttpServlet {
         assignment.setTitle(title);
         assignment.setDescription(description);
         assignment.setDeadline(deadline);
+        assignment.setStatus(status);
 
         boolean result =
             assignmentService.addAssignment(assignment);

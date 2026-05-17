@@ -24,10 +24,20 @@ public class CourseDetailsServlet extends HttpServlet {
                          HttpServletResponse response)
             throws ServletException, IOException {
 
-        int id =
-            Integer.parseInt(
-                request.getParameter("id")
-            );
+    		String idParam =
+    		    request.getParameter("id");
+
+    		if (idParam == null || idParam.isEmpty()) {
+
+    		    response.sendRedirect(
+    		        request.getContextPath() + "/courses"
+    		    );
+
+    		    return;
+    		}
+
+    		int id =
+    		    Integer.parseInt(idParam);
 
         CourseModel course =
             courseService.getCourseById(id);

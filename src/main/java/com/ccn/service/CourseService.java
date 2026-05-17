@@ -21,14 +21,16 @@ public class CourseService {
             Connection conn = DBConfig.getDbConnection();
 
             String sql =
-                "INSERT INTO courses(title, description, created_at) VALUES(?, ?, NOW())";
+            	    "INSERT INTO courses(title, description, category, instructor, status, created_at) VALUES(?, ?, ?, ?, ?, NOW())";
 
             PreparedStatement ps =
                 conn.prepareStatement(sql);
 
             ps.setString(1, course.getTitle());
             ps.setString(2, course.getDescription());
-
+            ps.setString(3, course.getCategory());
+            ps.setString(4, course.getInstructor());
+            ps.setString(5, course.getStatus());
             int rows = ps.executeUpdate();
 
             if (rows > 0) {
@@ -73,6 +75,9 @@ public class CourseService {
                 course.setId(rs.getInt("id"));
                 course.setTitle(rs.getString("title"));
                 course.setDescription(rs.getString("description"));
+                course.setCategory(rs.getString("category"));
+                course.setInstructor(rs.getString("instructor"));
+                course.setStatus(rs.getString("status"));
 
                 courses.add(course);
             }
@@ -117,6 +122,9 @@ public class CourseService {
                 course.setId(rs.getInt("id"));
                 course.setTitle(rs.getString("title"));
                 course.setDescription(rs.getString("description"));
+                course.setCategory(rs.getString("category"));
+                course.setInstructor(rs.getString("instructor"));
+                course.setStatus(rs.getString("status"));
             }
 
             rs.close();
@@ -163,4 +171,81 @@ public class CourseService {
 
         return total;
     }
+    
+    // Update Course
+    public boolean updateCourse(CourseModel course) {
+
+        boolean result = false;
+
+        try {
+
+            Connection conn =
+                DBConfig.getDbConnection();
+
+            String sql =
+                "UPDATE courses " +
+                "SET title = ?, " +
+                "category = ?, " +
+                "instructor = ?, " +
+                "status = ? " +
+                "WHERE id = ?";
+
+            PreparedStatement ps =
+                conn.prepareStatement(sql);
+
+            ps.setString(1, course.getTitle());
+            ps.setString(2, course.getCategory());
+            ps.setString(3, course.getInstructor());
+            ps.setString(4, course.getStatus());
+            ps.setInt(5, course.getId());
+
+            int rows =
+                ps.executeUpdate();
+
+            result = rows > 0;
+
+            ps.close();
+            conn.close();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return result;
+    }
+    
+    // Delete Course
+    public boolean deleteCourse(int id) {
+
+        boolean result = false;
+
+        try {
+
+            Connection conn =
+                DBConfig.getDbConnection();
+
+            String sql =
+                "DELETE FROM courses WHERE id = ?";
+
+            PreparedStatement ps =
+                conn.prepareStatement(sql);
+
+            ps.setInt(1, id);
+
+            int rows =
+                ps.executeUpdate();
+
+            result = rows > 0;
+
+            ps.close();
+            conn.close();
+
+        } catch (Exception e) {
+
+            e.printStackTrace();
+        }
+
+        return result;
+    }
+    
 }

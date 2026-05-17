@@ -25,13 +25,82 @@ public class AssignmentsServlet extends HttpServlet {
                          HttpServletResponse response)
             throws ServletException, IOException {
 
-        List<AssignmentModel> assignments =
-            assignmentService.getAllAssignments();
+        List<AssignmentModel> assignments;
 
-        request.setAttribute("assignments", assignments);
+        String courseIdParam =
+            request.getParameter("courseId");
 
-        request.getRequestDispatcher("/WEB-INF/pages/assignments.jsp")
-               .forward(request, response);
+        if (courseIdParam != null &&
+            !courseIdParam.isEmpty()) {
+
+            int courseId =
+                Integer.parseInt(courseIdParam);
+
+            assignments =
+                assignmentService.getAssignmentsByCourseId(
+                    courseId
+                );
+
+            request.setAttribute(
+                "selectedCourseId",
+                courseId
+            );
+
+        } else {
+
+            assignments =
+                assignmentService.getAllAssignments();
+        }
+
+        // TOTAL ASSIGNMENTS
+        int totalAssignments =
+            assignments.size();
+
+        // ACTIVE ASSIGNMENTS
+        int activeAssignments = 0;
+
+        // DUE SOON ASSIGNMENTS
+        int dueSoonAssignments = 0;
+
+        for (AssignmentModel assignment : assignments) {
+
+            if ("Active".equalsIgnoreCase(
+                    assignment.getStatus())) {
+
+                activeAssignments++;
+            }
+
+            if ("Due Soon".equalsIgnoreCase(
+                    assignment.getStatus())) {
+
+                dueSoonAssignments++;
+            }
+        }
+
+        // PASS DATA TO JSP
+        request.setAttribute(
+            "assignments",
+            assignments
+        );
+
+        request.setAttribute(
+            "totalAssignments",
+            totalAssignments
+        );
+
+        request.setAttribute(
+            "activeAssignments",
+            activeAssignments
+        );
+
+        request.setAttribute(
+            "dueSoonAssignments",
+            dueSoonAssignments
+        );
+
+        request.getRequestDispatcher(
+            "/WEB-INF/pages/assignments.jsp"
+        ).forward(request, response);
     }
 
 }

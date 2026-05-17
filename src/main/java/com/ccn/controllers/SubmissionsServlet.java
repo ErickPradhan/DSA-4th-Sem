@@ -34,7 +34,7 @@ public class SubmissionsServlet extends HttpServlet {
         );
 
         request.getRequestDispatcher(
-            "/WEB-INF/pages/submissions.jsp"
+            "/WEB-INF/pages/submission.jsp"
         ).forward(request, response);
 
     }

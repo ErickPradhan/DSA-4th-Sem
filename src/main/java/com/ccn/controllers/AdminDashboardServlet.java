@@ -31,6 +31,12 @@ public class AdminDashboardServlet extends HttpServlet {
         int totalCourses = courseService.getTotalCourses();
         int totalAssignments = assignmentService.getTotalAssignments();
         int totalSubmissions = submissionService.getTotalSubmissions();
+        int totalUsers = userService.getTotalUsers();
+
+        request.setAttribute(
+            "totalUsers",
+            totalUsers
+        );
 
         List<SubmissionModel> recentSubmissions = submissionService.getRecentSubmissions();
 
@@ -41,6 +47,8 @@ public class AdminDashboardServlet extends HttpServlet {
 
         request.setAttribute("recentSubmissions", recentSubmissions);
 
+        request.setAttribute("totalUsers", totalUsers);
+        
         request.getRequestDispatcher("/WEB-INF/pages/admin-dashboard.jsp")
                 .forward(request, response);
     }

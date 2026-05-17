@@ -1,2 +1,6 @@
 eclipse.preferences.version=1
+encoding//src/main/webapp/WEB-INF/pages/courses.jsp=UTF-8
+encoding//src/main/webapp/WEB-INF/pages/student-dashboard-content.jsp=UTF-8
+encoding//src/main/webapp/WEB-INF/pages/student-dashboard.jsp=UTF-8
+encoding//src/main/webapp/WEB-INF/pages/submission-content.jsp=UTF-8
 encoding/<project>=UTF-8

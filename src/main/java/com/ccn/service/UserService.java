@@ -136,4 +136,37 @@ public class UserService {
 
 	    return count;
 	}
+	
+	public int getTotalUsers() {
+
+	    int total = 0;
+
+	    try {
+
+	        Connection conn =
+	            DBConfig.getDbConnection();
+
+	        String sql =
+	            "SELECT COUNT(*) FROM users";
+
+	        PreparedStatement ps =
+	            conn.prepareStatement(sql);
+
+	        ResultSet rs =
+	            ps.executeQuery();
+
+	        if (rs.next()) {
+	            total = rs.getInt(1);
+	        }
+
+	        rs.close();
+	        ps.close();
+	        conn.close();
+
+	    } catch (Exception e) {
+	        e.printStackTrace();
+	    }
+
+	    return total;
+	}
 }

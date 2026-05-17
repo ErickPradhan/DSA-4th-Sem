@@ -1,5 +1,7 @@
 package com.ccn.model;
 
+import java.util.List;
+
 public class SubmissionModel {
 
 	// Instance Variables:
@@ -11,7 +13,26 @@ public class SubmissionModel {
 	private String studentName;
 	private String assignmentTitle;
 	private String courseTitle;
+	private String status;
+	private List<SubmissionFileModel>
+    submissionFiles;
 	
+	public List<SubmissionFileModel> getSubmissionFiles() {
+		return submissionFiles;
+	}
+
+	public void setSubmissionFiles(List<SubmissionFileModel> submissionFiles) {
+		this.submissionFiles = submissionFiles;
+	}
+
+	public String getStatus() {
+		return status;
+	}
+
+	public void setStatus(String status) {
+		this.status = status;
+	}
+
 	// Empty Constructor:
 	public SubmissionModel() {
 		

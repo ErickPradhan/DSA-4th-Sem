@@ -9,8 +9,17 @@ public class AssignmentModel {
     private String description;
     private String deadline;
     private String courseTitle;
+    private String status;
 
-    // Empty Constructor
+    public String getStatus() {
+		return status;
+	}
+
+	public void setStatus(String status) {
+		this.status = status;
+	}
+
+	// Empty Constructor
     public AssignmentModel() {
 
     }

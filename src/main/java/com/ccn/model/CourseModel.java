@@ -7,10 +7,37 @@ public class CourseModel {
 	private String title;
 	private String description;
 	private String createdAt;
+	private String category;
+	private String instructor;
+	private String status;
 	
 	// Empty Constructor:
 	public CourseModel() {
 		// ???
+	}
+
+	public String getCategory() {
+		return category;
+	}
+
+	public void setCategory(String category) {
+		this.category = category;
+	}
+
+	public String getInstructor() {
+		return instructor;
+	}
+
+	public void setInstructor(String instructor) {
+		this.instructor = instructor;
+	}
+
+	public String getStatus() {
+		return status;
+	}
+
+	public void setStatus(String status) {
+		this.status = status;
 	}
 
 	//Parameterized constructor:
